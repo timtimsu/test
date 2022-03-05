@@ -7,8 +7,16 @@ import java.nio.charset.CharsetDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
+
+    public static class A{
+        public static <T> T indentify(T t) {
+            return t;
+        };
+    };
 
     public static void main(String[] args) throws IOException {
         CharsetDecoder decoder = Charset.forName("Cp1251").newDecoder();
@@ -26,6 +34,25 @@ public class Main {
                         }
                     }
             }
+
+        int y = 0;
+
+        System.out.println(y+++"");
+        System.out.println("a" + --y);
+        class B extends A{};
+        class C extends B{};
+
+
+        A al = new C();
+
+
+
+
+
+        Stream<String> stream = Stream.iterate("", (s) -> s + "1");
+        //System.out.println(stream.limit(1).collect(Collectors.joining()));
+        System.out.println(stream.limit(3).map(x-> x + "2").collect(Collectors.joining()));
+
     }
 
 }
