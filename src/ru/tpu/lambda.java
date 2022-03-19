@@ -14,26 +14,27 @@ public class lambda {
         for (int i = 0; i<10; i++){
             list.add(rnd.nextInt(500)+1);
         }
-        list.forEach(l-> System.out.println(l));
+        list.forEach(l-> System.out.print(l+ " "));
         System.out.println("");
-         list.stream().
+        list.stream().
                 filter(x -> {
-                    return (x < 100 || x > 10);
+                    return (x > 10);
                 } ).
-                sorted((l1,l2)-> l2 - l1).
-                map(x -> {
+               sorted((l1,l2)-> l1 - l2).
+               map(x -> {
                     int res = x*x;
                     res = -res;
                     return  res+1;
                 }
                 ).
-                 forEach(x -> {
+                  forEach(x -> {
                   int y = x+1;
-                  System.out.println(y);
+                  System.out.print(y + " ");
                  });
+         System.out.println();
                 //forEach(System.out::println);
         //System.out.println(res1);
-        list.forEach(l-> System.out.println(l));
+        list.forEach(l-> System.out.print(l+ " "));
     }
 
 
